@@ -8,7 +8,12 @@ Movie datasets are taken from Kaggle and is present in `datasets` folder.<br />
 Run `predict_similar_movies.py` to get top 10 similar movies.
 
 ### Instructions:
-1. Install Jupyter Notebook using the following command:
+1. Install Flask using the following command:
+	```
+	pip install flask
+	```
+
+2. Install Jupyter Notebook using the following command:
 	```
 	pip install notebook
 	```
@@ -17,7 +22,7 @@ Run `predict_similar_movies.py` to get top 10 similar movies.
 	jupyter notebook
 	```
 
-2. Install pandas package using the following command:
+3. Install pandas package using the following command:
 	```
 	pip install pandas
 	```
