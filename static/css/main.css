@@ -1,10 +1,13 @@
-div.search {
+div.search, div.outerBox {
 	width: 90%;
 	margin: auto;
 	padding: 10px;
-	text-align: center;
 	box-shadow: 5px 5px 5px #808080;
 	border-radius: 5px;
+}
+
+div.search {
+	text-align: center;
 }
 
 input.search {
@@ -46,4 +49,55 @@ button.movie:hover {
 	input.search, button.movie {
 		width: 100%;
 	}
+}
+
+div.outerBox {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 70px;
+}
+
+div.poster {
+	width: 200px;
+	height: 300px;
+	border: 2px solid black;
+	box-shadow: 5px 5px 5px #808080;
+	border-radius: 10px;
+}
+
+div.movie-details {
+	padding: 20px;
+}
+
+@media (min-width: 576px) {
+	div.movie-details {
+		width: calc(100% - 200px);
+	}
+}
+@media (max-width: 575px) {
+	div.poster {
+		margin: auto;
+	}
+	div.movie-details {
+		width: 100%;
+	}
+}
+
+img.poster {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+}
+
+span.heading, a#wiki {
+	color: #555;
+	font-weight: 500;
+}
+
+a#wiki {
+	text-decoration: none;
+}
+
+span.data {
+	font-weight: 500;
 }

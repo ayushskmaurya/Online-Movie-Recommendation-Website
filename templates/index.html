@@ -16,10 +16,45 @@
 	
 	<div class="search">
 		<form>
-			<input type="text" onkeyup="show_movies(this.value);" class="search">
+			<input type="text" onkeyup="show_movies(this.value);" class="search" id="title" autocomplete="off">
 			<div id="movies" style="display: none;"></div>
-			<div><button type="button" class="btn btn-primary">Search</button></div>
+			<div><button type="button" class="btn btn-primary" onclick="movie_name();">Search</button></div>
 		</form>
+	</div>
+
+	<div class="outerBox">
+		<div class="poster">
+			<img class="poster" id="movie-poster" src="" alt="">
+		</div>
+		<div class="movie-details">
+			<p>
+				<span class="heading">TITLE: </span>
+				<span class="data" id="movie-title"></span>
+			</p>
+			<p>
+				<span class="heading">GENRES: </span>
+				<span class="data" id="movie-genres"></span>
+			</p>
+			<p>
+				<span class="heading">IMDB RATING: </span>
+				<span class="data" id="movie-imdb-rating"></span>
+			</p>
+			<p>
+				<span class="heading">RELEASE DATE: </span>
+				<span class="data" id="movie-release-date"></span>
+			</p>
+			<p>
+				<span class="heading">CAST:<br></span>
+				<span class="data" id="movie-cast"></span>
+			</p>
+			<p>
+				<span class="heading">SUMMARY:<br></span>
+				<span class="data" id="movie-summary"></span>
+			</p>
+			<p>
+				<span class="heading"><a id="wiki" target="_blank">WIKIPEDIA</a></span>
+			</p>
+		</div>
 	</div>
 
 	<!-- Bootstrap Script -->
