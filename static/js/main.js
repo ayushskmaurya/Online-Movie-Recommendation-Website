@@ -1,3 +1,5 @@
+var show = true;
+
 // Show top 5 rated movies while searching
 function show_movies(text) {
 	if(text.length >= 3) {
@@ -28,6 +30,10 @@ function movie_name() {
 
 // Retrieving movie details from prepared csv file
 function search(title) {
+	if(show) {
+		document.getElementById("show").style.display = "block";
+		show = false;
+	}
 	$.ajax({
 		url: "/movie_details",
 		method: "POST",
@@ -45,6 +51,32 @@ function search(title) {
 				document.getElementById("movie-cast").innerHTML = data['actors'];
 				document.getElementById("movie-summary").innerHTML = data['summary'];
 				document.getElementById("wiki").href = data['wiki_link'];
+				get_similar_movies(title);
+			}
+		}
+	});
+}
+
+// Getting top 10 similar movies.
+function get_similar_movies(title) {
+	$.ajax({
+		url: "/similar_movies",
+		method: "POST",
+		data: {title:title},
+		success: function(similar_movies) {
+			document.getElementById("similar-movies").innerHTML = "<div class='similar-movies-heading'><h3>Similar Movies</h3></div>";
+			for(movie in similar_movies) {			
+				let div = document.createElement("DIV");
+				div.className="similar-movie";
+				div.setAttribute("onclick", "search('" + movie + "');");
+
+				let mhtml = "<div class='similar-movies-poster'>";
+				mhtml += "<img class='similar-movies-poster' src='" + similar_movies[movie] + "' alt='" + movie + "'></img>";
+				mhtml += "</div>";
+				mhtml += "<p class='similar-movie-name'>" + movie + "</p>";
+
+				div.innerHTML = mhtml;
+				document.getElementById("similar-movies").appendChild(div);
 			}
 		}
 	});

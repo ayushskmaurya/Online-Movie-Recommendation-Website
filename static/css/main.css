@@ -1,4 +1,4 @@
-div.search, div.outerBox {
+div.search, div.outerBox, div.similar-movies {
 	width: 90%;
 	margin: auto;
 	padding: 10px;
@@ -57,7 +57,7 @@ div.outerBox {
 	margin-top: 70px;
 }
 
-div.poster {
+div.poster, div.similar-movies-poster {
 	width: 200px;
 	height: 300px;
 	border: 2px solid black;
@@ -83,7 +83,7 @@ div.movie-details {
 	}
 }
 
-img.poster {
+img.poster, img.similar-movies-poster {
 	width: 100%;
 	height: 100%;
 	border-radius: 10px;
@@ -99,5 +99,28 @@ a#wiki {
 }
 
 span.data {
+	font-weight: 500;
+}
+
+div.similar-movies {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 70px;
+	margin-bottom: 70px;
+}
+
+div.similar-movies-heading {
+	width: 100%;
+}
+
+div.similar-movie {
+	margin: auto;
+	padding: 10px;
+	cursor: pointer;
+}
+
+p.similar-movie-name {
+	margin-top: 5px;
+	text-align: center;
 	font-weight: 500;
 }

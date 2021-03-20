@@ -47,7 +47,7 @@ def probability(row, info):
     return  p
 
 
-# Getting the list of top 10 similar movies.
+# Getting top 10 similar movies.
 def get_similar_movies(title):
     info = get_info(title)
     if info is not None:
@@ -56,10 +56,3 @@ def get_similar_movies(title):
         return pre_movies.nlargest(10, 'p')
     else:
         return "No movie found!"
-
-
-title = input("Enter movie title: ")
-similar_movies = get_similar_movies(title)['title'].tolist()
-print("\nTop 10 similar movies:")
-for movie in similar_movies:
-	print(movie)

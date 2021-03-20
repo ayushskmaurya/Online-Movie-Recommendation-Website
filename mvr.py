@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, jsonify
 import pandas as pd
+import predict_similar_movies
+
 app = Flask(__name__)
+pd.set_option('display.max_colwidth', None)
 
 
 # Show top 5 rated movies while searching
@@ -8,16 +11,16 @@ app = Flask(__name__)
 def show_movies():
 	text = request.form['text']
 
-	movie_pre_info = pd.read_csv('prepared_data/movie_details.csv')
-	movies = movie_pre_info[movie_pre_info['title'].str.match("(?i)" + text)]
+	mdetails = pd.read_csv('prepared_data/movie_details.csv')
+	movies = mdetails[mdetails['title'].str.match("(?i)" + text)]
 	movies = movies.nlargest(5, 'imdb_rating')
 	
 	return jsonify(movies['title'].tolist())
 
 
 # Returning details of particular movie
-def get_info(movie_pre_info, title):
-    row = movie_pre_info[movie_pre_info['title'].str.lower() == title.lower()]
+def get_info(mdetails, title):
+    row = mdetails[mdetails['title'].str.lower() == title.lower()]
     data = next(row.iterrows(), None)
     
     if data is not None:
@@ -40,8 +43,32 @@ def get_info(movie_pre_info, title):
 @app.route("/movie_details", methods=['POST'])
 def movie_details():
 	title = request.form['title']
-	movie_pre_info = pd.read_csv('prepared_data/movie_details.csv')
-	return get_info(movie_pre_info, title)
+	mdetails = pd.read_csv('prepared_data/movie_details.csv')
+	return get_info(mdetails, title)
+
+
+# Retrieving poster paths
+def get_poster_path(mdetails, movies):
+	paths = {}
+	for movie in movies:
+		mdata = mdetails[mdetails['title'] == movie]
+		if not mdata.empty:
+			paths[movie] = mdata.poster_path.to_string(index=False)
+		else:
+			paths[movie] = "#"
+
+	return paths
+
+
+# Getting top 10 similar movies.
+@app.route("/similar_movies", methods=['POST'])
+def similar_movies():
+	title = request.form['title']
+
+	mdetails = pd.read_csv('prepared_data/movie_details.csv')        
+	movies = predict_similar_movies.get_similar_movies(title)['title'].tolist()
+
+	return get_poster_path(mdetails, movies)
 
 
 @app.route("/")
