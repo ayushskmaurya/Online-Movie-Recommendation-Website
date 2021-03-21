@@ -42,8 +42,11 @@ function search(title) {
 			if(data != "0") {
 				document.getElementById("title").value = "";
 				document.getElementById("movies").style.display = "none";
+				window.scrollTo(0, 0);
+
 				document.getElementById("movie-poster").src = data['poster_path'];
 				document.getElementById("movie-poster").alt = data['title'];
+
 				document.getElementById("movie-title").innerHTML = data['title'];
 				document.getElementById("movie-genres").innerHTML = data['genres'];
 				document.getElementById("movie-imdb-rating").innerHTML = data['imdb_rating'];
@@ -51,6 +54,7 @@ function search(title) {
 				document.getElementById("movie-cast").innerHTML = data['actors'];
 				document.getElementById("movie-summary").innerHTML = data['summary'];
 				document.getElementById("wiki").href = data['wiki_link'];
+
 				get_similar_movies(title);
 			}
 		}

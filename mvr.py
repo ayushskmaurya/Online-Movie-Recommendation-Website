@@ -6,7 +6,7 @@ app = Flask(__name__)
 pd.set_option('display.max_colwidth', None)
 
 
-# Show top 5 rated movies while searching
+# Show top rated 5 movies while searching
 @app.route("/show_movies", methods=['POST'])
 def show_movies():
 	text = request.form['text']
@@ -77,4 +77,4 @@ def index():
 
 
 if __name__ == '__main__':
-	app.run(debug=True)
+	app.run()
