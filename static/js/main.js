@@ -1,5 +1,3 @@
-var show = true;
-
 // Show top 5 rated movies while searching
 function show_movies(text) {
 	if(text.length >= 3) {
@@ -25,24 +23,24 @@ function show_movies(text) {
 // Getting movie name and searching for movie details
 function movie_name() {
 	let title = document.getElementById("title").value.trim();
-	search(title);
+	if(title.length != 0)
+		search(title);
 }
 
 // Retrieving movie details from prepared csv file
 function search(title) {
-	if(show) {
-		document.getElementById("show").style.display = "block";
-		show = false;
-	}
 	$.ajax({
 		url: "/movie_details",
 		method: "POST",
 		data: {title:title},
 		success: function(data) {
+			document.getElementById("title").value = "";
+			document.getElementById("movies").style.display = "none";
+			window.scrollTo(0, 0);
+
 			if(data != "0") {
-				document.getElementById("title").value = "";
-				document.getElementById("movies").style.display = "none";
-				window.scrollTo(0, 0);
+				document.getElementById("no-result").style.display = "none";
+				document.getElementById("show").style.display = "block";
 
 				document.getElementById("movie-poster").src = data['poster_path'];
 				document.getElementById("movie-poster").alt = data['title'];
@@ -56,6 +54,11 @@ function search(title) {
 				document.getElementById("wiki").href = data['wiki_link'];
 
 				get_similar_movies(title);
+			}
+			else {
+				document.getElementById("show").style.display = "none";
+				document.getElementById("no-result").innerHTML = "Sorry! No results found.";
+				document.getElementById("no-result").style.display = "block";
 			}
 		}
 	});

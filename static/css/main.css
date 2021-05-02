@@ -124,3 +124,9 @@ p.similar-movie-name {
 	text-align: center;
 	font-weight: 500;
 }
+
+div.no-result {
+	width: 90%;
+	margin: auto;
+	margin-top: 50px;
+}
