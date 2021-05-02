@@ -34,6 +34,7 @@ function search(title) {
 		method: "POST",
 		data: {title:title},
 		success: function(data) {
+			document.getElementById("search").style.marginTop = "10px";
 			document.getElementById("title").value = "";
 			document.getElementById("movies").style.display = "none";
 			window.scrollTo(0, 0);

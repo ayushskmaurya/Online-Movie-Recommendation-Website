@@ -1,0 +1,43 @@
+div.header {
+	background-color: #000;
+}
+
+span.site-name {
+	color: #fff;
+	font-size: 2rem;
+	font-weight: bold;
+	margin-left: 10px;
+	margin-right: 5px;
+}
+
+span.site {
+	color: #fff;
+	font-size: 1.2rem;
+	font-weight: 500;
+}
+
+@media (max-width: 300px) {
+	span.site {
+		display: none;
+	}
+}
+
+div.menu {
+	background-color: #0f0f0f;
+	padding: 1px;
+	padding-left: 10px;
+}
+
+button.menu-opt {
+	background-color: #0f0f0f;
+	border: 1px solid #0f0f0f;
+	color: #fff;
+	padding: 3px;
+}
+button.menu-opt:hover {
+	border: 1px solid #fff;
+}
+
+#btn-home {
+	font-weight: 500;
+}

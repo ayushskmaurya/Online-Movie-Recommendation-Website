@@ -2,11 +2,13 @@ div.search, div.outerBox, div.similar-movies {
 	width: 90%;
 	margin: auto;
 	padding: 10px;
+	border: 1px solid #808080;
 	box-shadow: 5px 5px 5px #808080;
 	border-radius: 5px;
 }
 
 div.search {
+	margin-top: 100px;
 	text-align: center;
 }
 
@@ -20,10 +22,16 @@ input.search:focus {
 	outline: none;
 }
 
-.btn {
+button.search {
 	margin-top: 10px;
+	background-color: #000;
+	color: #fff;
 }
-.btn:focus {
+button.search:hover {
+	background-color: #0f0f0f;
+	color: #fff;
+}
+button.search:focus {
 	box-shadow: none;
 }
 
@@ -41,6 +49,9 @@ button.movie:hover {
 }
 
 @media (min-width: 600px) {
+	div.search {
+		width: 520px;
+	}
 	input.search, button.movie {
 		width: 500px;
 	}
@@ -54,7 +65,7 @@ button.movie:hover {
 div.outerBox {
 	display: flex;
 	flex-wrap: wrap;
-	margin-top: 70px;
+	margin-top: 20px;
 }
 
 div.poster, div.similar-movies-poster {
