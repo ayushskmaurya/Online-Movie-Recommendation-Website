@@ -1,0 +1,20 @@
+div.outerDiv {
+	width: 90%;
+	margin: auto;
+	margin-top: 50px;
+	padding: 10px;
+	border: 1px solid #808080;
+	box-shadow: 5px 5px 5px #808080;
+	border-radius: 5px;
+}
+
+h4 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+ul {
+	font-size: 1.1rem;
+	font-weight: 500;
+}

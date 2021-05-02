@@ -1,0 +1,143 @@
+div.search, div.outerBox, div.similar-movies {
+	width: 90%;
+	margin: auto;
+	padding: 10px;
+	border: 1px solid #808080;
+	box-shadow: 5px 5px 5px #808080;
+	border-radius: 5px;
+}
+
+div.search {
+	margin-top: 100px;
+	text-align: center;
+}
+
+input.search {
+	border: 1px solid #000;
+	padding: 5px;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+input.search:focus {
+	outline: none;
+}
+
+button.search {
+	margin-top: 10px;
+	background-color: #000;
+	color: #fff;
+}
+button.search:hover {
+	background-color: #0f0f0f;
+	color: #fff;
+}
+button.search:focus {
+	box-shadow: none;
+}
+
+button.movie {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	border: none;
+	background-color: #fff;
+	text-align: left;
+	padding: 5px
+}
+button.movie:hover {
+	background-color: #e0e0e0;
+}
+
+@media (min-width: 600px) {
+	div.search {
+		width: 520px;
+	}
+	input.search, button.movie {
+		width: 500px;
+	}
+}
+@media (max-width: 599px) {
+	input.search, button.movie {
+		width: 100%;
+	}
+}
+
+div.outerBox {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 20px;
+}
+
+div.poster, div.similar-movies-poster {
+	width: 200px;
+	height: 300px;
+	border: 2px solid black;
+	box-shadow: 5px 5px 5px #808080;
+	border-radius: 10px;
+}
+
+div.movie-details {
+	padding: 20px;
+}
+
+@media (min-width: 576px) {
+	div.movie-details {
+		width: calc(100% - 200px);
+	}
+}
+@media (max-width: 575px) {
+	div.poster {
+		margin: auto;
+	}
+	div.movie-details {
+		width: 100%;
+	}
+}
+
+img.poster, img.similar-movies-poster {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+}
+
+span.heading, a#wiki {
+	color: #555;
+	font-weight: 500;
+}
+
+a#wiki {
+	text-decoration: none;
+}
+
+span.data {
+	font-weight: 500;
+}
+
+div.similar-movies {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 70px;
+	margin-bottom: 70px;
+}
+
+div.similar-movies-heading {
+	width: 100%;
+}
+
+div.similar-movie {
+	margin: auto;
+	padding: 10px;
+	cursor: pointer;
+}
+
+p.similar-movie-name {
+	margin-top: 5px;
+	text-align: center;
+	font-weight: 500;
+}
+
+div.no-result {
+	width: 90%;
+	margin: auto;
+	margin-top: 50px;
+}

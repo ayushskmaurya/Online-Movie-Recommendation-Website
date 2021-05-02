@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+<!-- CSS -->
+{% block css %}
+<link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/how_it_works.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="outerDiv">
+	<h4>How it Works</h4>
+	<ul>
+		<li>MVR is an easy-to-use website.</li>
+		<li>To get recommended for the similar movies, click on the Search menu button as seen above.</li>
+		<li>You will be redirected to the search page where you will be able to see search box.</li>
+		<li>You can enter title of any bollywood movie of your choice.</li>
+		<li>Once you click on the search button, you will get to see movie details.</li>
+		<li>And below the details you will be able to see recommendation of similar movies.</li>
+	</ul>
+</div>
+{% endblock %}
