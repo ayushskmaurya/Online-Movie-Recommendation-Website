@@ -18,6 +18,7 @@ def get_info(title):
         return {
             "genres": genres,
             "actors": actors,
+			"imdb_rating": int(data[1].imdb_rating),
             "year_of_release": int(data[1].year_of_release),
             "genre_count": len(genres),
             "actor_count": len(actors)
@@ -39,11 +40,12 @@ def probability(row, info):
         if actor in row[2]:
             counts['actor'] += 1
     
-    counts['diff_year'] = abs(info['year_of_release'] -  row[3])
+    counts['diff_year'] = abs(info['year_of_release'] -  row[4])
         
-    p = 0.5 * (counts['genre'] / info['genre_count'])
-    p += 0.3 * (counts['actor'] / info['actor_count'])
-    p += 0.2 * (1 - (counts['diff_year'] / year_diff))
+    p = 0.45 * (counts['genre'] / info['genre_count'])
+    p += 0.25 * (counts['actor'] / info['actor_count'])
+    p += 0.2 * (row[3] / 10)
+    p += 0.1 * (1 - (counts['diff_year'] / year_diff))
     return  p
 
 
